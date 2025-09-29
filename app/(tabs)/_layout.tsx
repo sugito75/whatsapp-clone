@@ -1,35 +1,40 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Icon } from "@/components/ui/icon";
+import { Tabs } from "expo-router";
+import { CircleDashed, MessageSquareText, Phone } from "lucide-react-native";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const _layout = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarActiveTintColor: "#59ce72",
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="chats"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Chats",
+          tabBarIcon: ({ color }) => (
+            <Icon color={color} as={MessageSquareText} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="updates"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Updates",
+          tabBarIcon: ({ color }) => <Icon color={color} as={CircleDashed} />,
+        }}
+      />
+      <Tabs.Screen
+        name="calls"
+        options={{
+          title: "Calls",
+          tabBarIcon: ({ color }) => <Icon color={color} as={Phone} />,
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default _layout;
