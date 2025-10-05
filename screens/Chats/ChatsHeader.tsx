@@ -18,7 +18,7 @@ const ChatsHeader = () => {
       className="flex-row center"
     >
       <Heading size="2xl" style={{ color: "#59ce72", paddingStart: 10 }}>
-        WhatsApp
+        WhatIsUp
       </Heading>
       <Box className="flex-row items-center gap-5">
         <TouchableOpacity onPress={() => router.push("/camera")}>

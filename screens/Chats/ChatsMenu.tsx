@@ -7,6 +7,7 @@ import { TouchableOpacity } from "react-native";
 const ChatsMenu = () => {
   return (
     <Menu
+      onSelectionChange={(keys) => console.log(keys)}
       closeOnSelect
       style={{ width: 130 }}
       placement="bottom right"
@@ -25,8 +26,8 @@ const ChatsMenu = () => {
       <MenuItem key="Plugins" textValue="Plugins">
         <MenuItemLabel size="sm">Plugins</MenuItemLabel>
       </MenuItem>
-      <MenuItem key="Settings" textValue="Settings">
-        <MenuItemLabel size="sm">Settings</MenuItemLabel>
+      <MenuItem key="Logout" textValue="Logout">
+        <MenuItemLabel size="sm">Logout</MenuItemLabel>
       </MenuItem>
     </Menu>
   );
