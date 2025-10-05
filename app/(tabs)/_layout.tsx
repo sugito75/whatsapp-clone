@@ -8,6 +8,7 @@ const _layout = () => {
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: "#59ce72",
+        animation: "shift",
       }}
     >
       <Tabs.Screen

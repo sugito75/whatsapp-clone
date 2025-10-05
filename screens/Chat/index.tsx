@@ -10,8 +10,8 @@ const ChatScreen = () => {
     <ImageBackground className="flex-1" source={defaultBg}>
       <ChatHeader />
       <View className="flex-1">
-        <ChatBox isSender={true} />
-        <ChatBox />
+        <ChatBox isSender={true} msg="Hello beb" />
+        <ChatBox msg="haloo dear!!" />
       </View>
       <ChatInput />
     </ImageBackground>

@@ -20,6 +20,7 @@ module.exports = {
     extend: {
       colors: {
         primary: '#59ce72',
+        paleGreen: "#DCF8C6",
         secondary: {
           0: 'rgb(var(--color-secondary-0)/<alpha-value>)',
           50: 'rgb(var(--color-secondary-50)/<alpha-value>)',

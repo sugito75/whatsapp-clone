@@ -1,12 +1,8 @@
+import UpdatesScreen from "@/screens/Updates";
 import React from "react";
-import { Text, View } from "react-native";
 
 const updates = () => {
-  return (
-    <View>
-      <Text>updates</Text>
-    </View>
-  );
+  return <UpdatesScreen />;
 };
 
 export default updates;
