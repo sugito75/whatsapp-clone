@@ -5,7 +5,6 @@ import "@/global.css";
 
 export default function RootLayout() {
   return (
-    // <SafeAreaView className="flex-1">
     <GluestackUIProvider>
       <Stack
         screenOptions={{
@@ -16,8 +15,8 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="camera" />
         <Stack.Screen name="chat" />
+        <Stack.Screen name="status" />
       </Stack>
     </GluestackUIProvider>
-    // </SafeAreaView>
   );
 }
