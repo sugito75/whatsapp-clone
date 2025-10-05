@@ -1,5 +1,6 @@
 import myBini from "@/assets/images/my-wife.jpeg";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Badge, BadgeText } from "@/components/ui/badge";
 import { Box } from "@/components/ui/box";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
@@ -21,16 +22,21 @@ const ChatsBox = () => {
         </Avatar>
         <Box>
           <Text bold>My Bini</Text>
-          <Box>
+          <Box className="flex-row items-center gap-2">
             <Icon as={CheckCheck} />
-            <Text>Bukankah ini my</Text>
+            <Text numberOfLines={1} style={{ maxWidth: 180 }}>
+              Bukankah ini
+            </Text>
           </Box>
         </Box>
       </Box>
-      <Box style={{ alignItems: "center" }}>
+      <Box style={{ alignItems: "center" }} className="gap-2">
         <Text>
           {new Date().getHours()}:{new Date().getMinutes().toFixed()}
         </Text>
+        <Badge className="rounded-full" style={{ backgroundColor: "#59ce72" }}>
+          <BadgeText>1</BadgeText>
+        </Badge>
       </Box>
     </TouchableOpacity>
   );
