@@ -1,0 +1,14 @@
+name: Preview Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository3
+      - uses: actions/checkout@v4

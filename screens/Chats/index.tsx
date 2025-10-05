@@ -5,12 +5,12 @@ import ChatsSearch from "./ChatsSearch";
 
 const ChatsScreen = () => {
   return (
-    <View className="flex-1" style={{ backgroundColor: "white" }}>
+    <View
+      className="flex-1 "
+      style={{ backgroundColor: "white", paddingTop: 40 }}
+    >
       <ChatsHeader />
       <ChatsSearch />
-      <ChatsBox />
-      <ChatsBox />
-      <ChatsBox />
       <ChatsBox />
     </View>
   );

@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icon";
 import { Menu, MenuItem, MenuItemLabel } from "@/components/ui/menu";
 import { EllipsisVertical } from "lucide-react-native";
 import React from "react";
+import { TouchableOpacity } from "react-native";
 
 const ChatsMenu = () => {
   return (
@@ -10,12 +10,12 @@ const ChatsMenu = () => {
       closeOnSelect
       style={{ width: 130 }}
       placement="bottom right"
-      offset={-30}
+      offset={-20}
       trigger={({ ...triggerProps }) => {
         return (
-          <Button {...triggerProps} style={{ width: 20 }}>
+          <TouchableOpacity style={{ width: 20 }} {...triggerProps}>
             <Icon as={EllipsisVertical} />
-          </Button>
+          </TouchableOpacity>
         );
       }}
     >
