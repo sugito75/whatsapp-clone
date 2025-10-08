@@ -7,7 +7,11 @@ import ChatInput from "./ChatInput";
 
 const ChatScreen = () => {
   return (
-    <ImageBackground className="flex-1" source={defaultBg}>
+    <ImageBackground
+      className="flex-1"
+      source={defaultBg}
+      style={{ width: "100%" }}
+    >
       <ChatHeader />
       <View className="flex-1">
         <ChatBox isSender={true} msg="Hello beb" />

@@ -12,7 +12,7 @@ import { TouchableOpacity } from "react-native";
 const ChatsBox = () => {
   return (
     <TouchableOpacity
-      className="flex-row"
+      className="flex-row "
       style={{ padding: 15, justifyContent: "space-between" }}
       onPress={() => router.push("/chat")}
     >
