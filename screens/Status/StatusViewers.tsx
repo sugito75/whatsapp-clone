@@ -15,7 +15,7 @@ const StatusViewers = (props: any) => {
   return (
     <Actionsheet
       isOpen={props.isOpen}
-      snapPoints={[40]}
+      snapPoints={[50]}
       closeOnOverlayClick
       onClose={props.onClose}
     >

@@ -1,0 +1,35 @@
+name: EAS preview build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Node.js Setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Login to EAS
+        run: eas whoami || eas login --token $EAS_TOKEN
+        env:
+          EAS_TOKEN: ${{ secrets.EAS_TOKEN }}
+
+      - name: Build Android
+        run: eas build --platform android --profile preview --non-interactive
+        env:
+          EAS_TOKEN: ${{ secrets.EAS_TOKEN }}

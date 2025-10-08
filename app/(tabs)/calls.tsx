@@ -1,12 +1,8 @@
+import CallsScreen from "@/screens/Calls";
 import React from "react";
-import { Text, View } from "react-native";
 
 const calls = () => {
-  return (
-    <View>
-      <Text>calls</Text>
-    </View>
-  );
+  return <CallsScreen />;
 };
 
 export default calls;
