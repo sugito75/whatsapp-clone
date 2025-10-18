@@ -11,7 +11,7 @@ export default function RootLayout() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="auth" />
+        <Stack.Screen name="(auth)" />
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="camera" />
         <Stack.Screen name="chat" />

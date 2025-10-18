@@ -15,7 +15,7 @@ const PrimaryButton = ({
   ...props
 }: TPrimaryButton) => {
   return (
-    <Button className={clsx(containerClassName)} {...props}>
+    <Button className={clsx("bg-primary-0", containerClassName)} {...props}>
       <ButtonText className={clsx("font-bold", textClassName)}>
         {text}
       </ButtonText>
