@@ -23,14 +23,14 @@ const ChatBox = (props: any) => {
         <Text>{props.msg}</Text>
 
         <Box
-          className="flex-row gap-1"
+          className="flex-row gap-1 items-center"
           style={{ justifyContent: "flex-end", alignItems: "center" }}
         >
-          <Text>
+          <Text size={"sm"}>
             {new Date().getHours()}:{new Date().getMinutes().toFixed()}
           </Text>
           {props.isSender && (
-            <Icon size={"sm"} as={CheckCheck} color="#34B7F1" />
+            <Icon size={"md"} as={CheckCheck} color="#34B7F1" />
           )}
         </Box>
       </Box>

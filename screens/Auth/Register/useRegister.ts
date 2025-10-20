@@ -32,6 +32,7 @@ const useRegister = () => {
       await register(data);
       router.replace("/(auth)/login");
       toast.show({ severity: "success", message: "Account Registered" });
+      resetData();
     } catch (error) {
       if (error instanceof AxiosError) {
         setError(
@@ -41,6 +42,13 @@ const useRegister = () => {
         );
       }
     }
+  };
+
+  const resetData = () => {
+    setDisplayName("");
+    setPhone("");
+    setIcon(undefined);
+    setPassword("");
   };
 
   return {

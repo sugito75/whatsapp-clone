@@ -1,16 +1,15 @@
-
 import { publicAPI } from "@/lib/axios";
 import { RegisterDTO } from "./dto";
 
-export async function register(dto: RegisterDTO) {
-    const formData = new FormData()
-    for (const [key, value] of Object.entries(dto)) {
+export function register(dto: RegisterDTO) {
+  const formData = new FormData();
+  for (const [key, value] of Object.entries(dto)) {
+    formData.append(key, value as any);
+  }
 
-        formData.append(key, value as any)
-    }
-
- 
-    return await publicAPI.post(`/users/new`, formData, {headers: {
-        'Content-Type': "multipart/form-data"
-    }})
+  return publicAPI.post(`/users/new`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 }

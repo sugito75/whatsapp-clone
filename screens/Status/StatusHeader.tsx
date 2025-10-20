@@ -1,13 +1,25 @@
 import myBini from "@/assets/images/my-wife.jpeg";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Box } from "@/components/ui/box";
+import { Progress, ProgressFilledTrack } from "@/components/ui/progress";
 import { Text } from "@/components/ui/text";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Dimensions } from "react-native";
 
 const { width } = Dimensions.get("window");
 
 const StatusHeader = (props: any) => {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let id = setInterval(() => {
+      if (progress === 100) return;
+      setProgress((prev) => prev + 1);
+    }, 100);
+
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <Box className="p-3 gap-3">
       <Box
@@ -15,15 +27,15 @@ const StatusHeader = (props: any) => {
         style={{ width, borderRightColor: "red" }}
       >
         {props.statuses.map((status: any, i: number) => (
-          <Box
-            key={i}
-            className="rounded-full"
-            style={{
-              height: 2,
-              backgroundColor: status.isViewed ? "#fff" : "#ccc",
-              flex: 1,
-            }}
-          ></Box>
+          <Box key={i} style={{ width: 110 }}>
+            <Progress
+              value={status.isViewed ? progress : 0}
+              size={"xs"}
+              style={{ overflow: "hidden" }}
+            >
+              <ProgressFilledTrack style={{ backgroundColor: "white" }} />
+            </Progress>
+          </Box>
         ))}
       </Box>
       <Box className="flex-row items-center gap-3">

@@ -1,4 +1,4 @@
-import RegisterScreen from "@/screens/Auth/Register/RegisterScreen";
+import RegisterScreen from "@/screens/Auth/Register";
 import React from "react";
 
 const register = () => {

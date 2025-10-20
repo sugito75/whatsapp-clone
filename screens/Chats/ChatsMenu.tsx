@@ -3,12 +3,21 @@ import { Menu, MenuItem, MenuItemLabel } from "@/components/ui/menu";
 import { EllipsisVertical } from "lucide-react-native";
 import React from "react";
 import { TouchableOpacity } from "react-native";
+import { Selection } from "react-stately";
+import menus from "./menu";
 
 const ChatsMenu = () => {
+  const handleSelectionChange = (keys: Selection) => {
+    const [key] = keys;
+    const menu = menus.find((m) => m.key === key);
+    menu?.action();
+  };
+
   return (
     <Menu
-      onSelectionChange={(keys) => console.log(keys)}
+      onSelectionChange={handleSelectionChange}
       closeOnSelect
+      selectionMode="single"
       style={{ width: 130 }}
       placement="bottom right"
       offset={-20}
@@ -20,15 +29,11 @@ const ChatsMenu = () => {
         );
       }}
     >
-      <MenuItem key="Add account" textValue="Add account">
-        <MenuItemLabel size="sm">New Group</MenuItemLabel>
-      </MenuItem>
-      <MenuItem key="Plugins" textValue="Plugins">
-        <MenuItemLabel size="sm">Plugins</MenuItemLabel>
-      </MenuItem>
-      <MenuItem key="Logout" textValue="Logout">
-        <MenuItemLabel size="sm">Logout</MenuItemLabel>
-      </MenuItem>
+      {menus.map((menu) => (
+        <MenuItem key={menu.key} textValue={menu.key}>
+          <MenuItemLabel size="sm">{menu.displayName}</MenuItemLabel>
+        </MenuItem>
+      ))}
     </Menu>
   );
 };
