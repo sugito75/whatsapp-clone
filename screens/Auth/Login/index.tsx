@@ -2,7 +2,7 @@ import { login } from "@/api/auth/login";
 import PrimaryButton from "@/components/common/Buttons/PrimaryButton";
 import FormInput from "@/components/common/Inputs/FormInput";
 import { Center } from "@/components/ui/center";
-import useAuthStore from "@/store/useAuth";
+import useAuthStore from "@/store/useAuthStore";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { KeyboardAvoidingView } from "react-native";

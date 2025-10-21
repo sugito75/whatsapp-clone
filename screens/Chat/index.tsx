@@ -1,7 +1,7 @@
 import defaultBg from "@/assets/images/default_bg.jpeg";
 import React from "react";
 import { ImageBackground, View } from "react-native";
-import ChatBox from "./ChatBox";
+
 import ChatHeader from "./ChatHeader";
 import ChatInput from "./ChatInput";
 
@@ -13,10 +13,7 @@ const ChatScreen = () => {
       style={{ width: "100%" }}
     >
       <ChatHeader />
-      <View className="flex-1">
-        <ChatBox isSender={true} msg="Hello beb" />
-        <ChatBox msg="haloo dear!!" />
-      </View>
+      <View className="flex-1"></View>
       <ChatInput />
     </ImageBackground>
   );

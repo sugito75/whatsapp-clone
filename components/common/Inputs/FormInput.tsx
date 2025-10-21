@@ -9,10 +9,11 @@ const FormInput = ({
   label,
   placeholder,
   type,
+  containerStyle,
   ...inputFieldProps
 }: IRegisterInput) => {
   return (
-    <Box style={styles.inputBox}>
+    <Box style={{ ...styles.inputBox, ...containerStyle }}>
       <Text style={styles.inputLabel}>{label}</Text>
       <Input style={styles.inputContainer}>
         <InputField

@@ -10,7 +10,7 @@ export default StyleSheet.create({
   inputLabel: {
     fontWeight: 500,
   },
-  inputBox:{
-    paddingBlock:10
-  }
-})
+  inputBox: {
+    paddingBlock: 10,
+  },
+});
