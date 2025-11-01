@@ -17,7 +17,14 @@ const LoginScreen = () => {
   const submit = async () => {
     try {
       const { data } = await login({ phone, password });
-      setAuthState({ isAuthenticated: true, socketId: data.data.sessionId });
+      const { sessionId, accessToken, refreshToken, id } = data.data;
+      setAuthState({
+        accessToken,
+        refreshToken,
+        userId: id,
+        isAuthenticated: true,
+        socketId: sessionId,
+      });
       router.replace("/(tabs)/chats");
     } catch (error) {
       console.log(error);

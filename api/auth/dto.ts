@@ -20,5 +20,7 @@ export type LoginResponse = {
     profilePicture: string;
     bio: string;
     sessionId: string;
+    accessToken: string;
+    refreshToken: string;
   };
 };

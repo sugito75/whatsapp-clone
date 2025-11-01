@@ -27,7 +27,7 @@ const NewContactScreen = () => {
       setIsNumberAvailable(data.data.isRegistered);
     };
 
-    if (phone.length > 11) {
+    if (phone.length >= 11) {
       checkAvailable();
     }
   }, [phone]);
@@ -35,6 +35,8 @@ const NewContactScreen = () => {
   const saveContact = async () => {
     const { data } = await getUserInfo(phone);
     const dto = data.data as UserInfoDTO;
+
+    dto.displayName = name;
     dto.id = `${+new Date()}`;
 
     addContact(dto);
@@ -68,7 +70,7 @@ const NewContactScreen = () => {
             keyboardType="numeric"
           />
         </Box>
-        {phone.length > 11 && (
+        {phone.length >= 11 && (
           <Text
             style={{ marginStart: 40 }}
             className={clsx({

@@ -7,8 +7,11 @@ import NewChatButton from "./NewChatButton";
 import { ScrollView } from "react-native";
 import NewChatContact from "./NewChatContact";
 import { router } from "expo-router";
+import useContactStore from "@/store/useContactStore";
 
 const NewChatScreen = () => {
+  const { contacts } = useContactStore();
+
   return (
     <Box className="flex-1 p-3 gap-3" style={{ backgroundColor: "white" }}>
       <Box>
@@ -26,10 +29,15 @@ const NewChatScreen = () => {
       <Box>
         <Text>Available Contacts</Text>
         <ScrollView style={{ maxHeight: 500 }}>
-          <NewChatContact />
-          <NewChatContact />
-          <NewChatContact />
-          <NewChatContact />
+          {contacts.map((contact) => (
+            <NewChatContact
+              key={contact.id}
+              displayName={contact.displayName}
+              id={contact.id}
+              bio={contact.bio}
+              icon={contact.icon}
+            />
+          ))}
         </ScrollView>
       </Box>
     </Box>

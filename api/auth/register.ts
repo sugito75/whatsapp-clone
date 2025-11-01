@@ -7,7 +7,7 @@ export function register(dto: RegisterDTO) {
     formData.append(key, value as any);
   }
 
-  return publicAPI.post(`/users/new`, formData, {
+  return publicAPI.post(`/api/auth/register`, formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },

@@ -1,15 +1,36 @@
-import myBini from "@/assets/images/my-wife.jpeg";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Badge, BadgeText } from "@/components/ui/badge";
 import { Box } from "@/components/ui/box";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
+import useAuthStore from "@/store/useAuthStore";
+import resolveIconUri from "@/utils/resolveImageUri";
+
 import { router } from "expo-router";
 import { CheckCheck } from "lucide-react-native";
-import React from "react";
 import { TouchableOpacity } from "react-native";
 
-const ChatsBox = () => {
+export type IChatsBox = {
+  id: number;
+  icon: string;
+  title: string;
+  newMessagesCount: number;
+  lastMessage: {
+    status: string;
+    text: string;
+    sentAt: Date;
+    senderId: number;
+  };
+};
+
+const ChatsBox = ({
+  icon,
+  title,
+  newMessagesCount,
+  lastMessage,
+}: IChatsBox) => {
+  const { userId } = useAuthStore();
+
   return (
     <TouchableOpacity
       className="flex-row "
@@ -18,25 +39,28 @@ const ChatsBox = () => {
     >
       <Box className="flex-row gap-4">
         <Avatar size={"lg"}>
-          <AvatarImage source={myBini} />
+          <AvatarImage source={resolveIconUri(icon)} />
         </Avatar>
         <Box>
-          <Text bold>My Bini</Text>
+          <Text bold>{title}</Text>
           <Box className="flex-row items-center gap-2">
-            <Icon as={CheckCheck} />
+            {lastMessage.senderId === userId && <Icon as={CheckCheck} />}
             <Text numberOfLines={1} style={{ maxWidth: 180 }}>
-              Bukankah ini
+              {lastMessage.text}
             </Text>
           </Box>
         </Box>
       </Box>
       <Box style={{ alignItems: "center" }} className="gap-2">
-        <Text>
-          {new Date().getHours()}:{new Date().getMinutes().toFixed()}
-        </Text>
-        <Badge className="rounded-full" style={{ backgroundColor: "#59ce72" }}>
-          <BadgeText>1</BadgeText>
-        </Badge>
+        <Text>{new Date(lastMessage.sentAt).toLocaleDateString()}</Text>
+        {newMessagesCount !== 0 && (
+          <Badge
+            className="rounded-full"
+            style={{ backgroundColor: "#59ce72" }}
+          >
+            <BadgeText>{newMessagesCount}</BadgeText>
+          </Badge>
+        )}
       </Box>
     </TouchableOpacity>
   );

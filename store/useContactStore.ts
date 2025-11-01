@@ -7,6 +7,7 @@ export type Contact = {
   displayName: string;
   phone: string;
   icon?: string;
+  bio?: string;
 };
 
 export type ContactStore = {
